@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DailyNotes.Views.NotesPage"
+             Title="Daily Notes: Click Icon>"
+             
+             BackgroundImageSource="Jrs.jpeg">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="write.png" 
+                     
+                     
+
+
+            Clicked="OnAddClicked"
+                    
+                     />
+        
+        
+    </ContentPage.ToolbarItems>
+   
+
+
+
+
+
+
+    <CollectionView x:Name="collectionView"
+                        Margin="20"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="10"/>
+
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame  BorderColor="Blue"
+                CornerRadius="15"
+            HasShadow="True"
+            BackgroundColor="AliceBlue" Opacity="0.8" Padding="1" Margin="10">
+
+                    <StackLayout Margin="0,35,0,0"
+                             x:Name="stackLayout">
+                        <Label Text="{Binding Text}"
+                           FontSize="Large"
+                           TextColor="Black"
+                               FontAttributes="Italic"
+                               />
+
+                    <Label Text="{Binding Date}"
+                           TextColor="Black"
+                           FontSize="Small"/>
+
+
+
+
+
+
+                    <Grid ColumnDefinitions="*,*"
+                          >
+
+                        <Button Grid.Column="1"
+                            Text="Notify"
+                                 BackgroundColor="Green"
+                                 CornerRadius="40"
+                            Clicked="OnSendClick"/>
+
+                        <Button Text="Set in 10s"
+                            Clicked="OnScheduleClick"
+                                BorderColor="Black"
+                                BorderRadius="30"
+                                BackgroundColor="Yellow"
+                                 
+                                HeightRequest="30"
+                                />
+
+
+
+                    </Grid>
+
+
+                </StackLayout>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    
+   
+
+</ContentPage>
